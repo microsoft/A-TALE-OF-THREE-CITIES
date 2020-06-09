@@ -173,6 +173,8 @@ Data exploration and visualization is done using SparkR, SparkSQL, ggplot2, html
 #### Fully explorable geoplot done using leaflet with ESRI plugin (with a subset of the data) attached in the artifacts :
 ![geoplot](images/geoplot.jpg)
 
+http://htmlpreview.github.io/? https://github.com/microsoft/A-TALE-OF-THREE-CITIES/blob/master/images/rwidgets_safety_events_mapexploration.html
+
 ## Problem Isolation
 Because of the varied nature of the incidents we tried to demonstrate the concepts using the pothole complaints. Pothole facts from wiki (Pothole#Costs_to_the_public, n.d.) The American Automobile Association estimated in the five years prior to 2016 that 16 million drivers in the United States have suffered damage from potholes to their vehicle including tire punctures, bent wheels, and damaged suspensions with a cost of $3 billion a year. In India, 3,000 people per year are killed in accidents involving potholes. Britain has estimated that the cost of fixing all roads with potholes in the country would cost £12 billion. As mentioned earlier, these methodologies can be seamlessly applied and reused across other categories of complaints with little modification.
 
