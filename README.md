@@ -151,6 +151,79 @@ fpp2, forecast, ggfortify , R base packages, tidyverse , anomalize
 5.	SparkR and 3rd party libraries are used for data analysis and visualization
 6.	SparkR and 3rd party libraries are used for Forecasting and Anomaly detection.
 
+## Data Wrangling and Enrichment
+Data is cleansed and enriched using SparkR and SparkSQL. The curated dataset is written in Azure Blob storage in parquet format (parquet.apache.org, n.d.) partitioned by City Name. The Code can be referred from “Step02a_Data_Wrangling” R Notebook from the artifacts section. 
+
+Final Data Structure:
+![enriched3cities](images/enriched3cities.jpg)
+
+Sink Storage:
+![storage](images/storage.jpg)
+
+## Data Exploration and Visualization
+
+Data exploration and visualization is done using SparkR, SparkSQL, ggplot2, htmltools, htmlwidgets, leaflet with ESRI plugin, magrittr etc. The Code and detailed exploration can be referred from “Step02b_Data_Exploration_Visualization” R Notebook from the artifacts section. Below are some highlights from this notebook.
+
+#### Top 30 and bottom 30 safety incidents reported in Chicago:
+![top30_bottom30_chicago](images/top30_bottom30_chicago.jpg)
+
+#### Changes Over Time - Volume of All Safety Calls and  specific Safety Calls (Graffiti in this example):
+![all_safety_graffiti](images/all_safety_graffiti.jpg)
+
+#### Fully explorable geoplot done using leaflet with ESRI plugin (with a subset of the data) attached in the artifacts :
+![geoplot](images/geoplot.jpg)
+
+## Problem Isolation
+Because of the varied nature of the incidents we tried to demonstrate the concepts using the pothole complaints. Pothole facts from wiki (Pothole#Costs_to_the_public, n.d.) The American Automobile Association estimated in the five years prior to 2016 that 16 million drivers in the United States have suffered damage from potholes to their vehicle including tire punctures, bent wheels, and damaged suspensions with a cost of $3 billion a year. In India, 3,000 people per year are killed in accidents involving potholes. Britain has estimated that the cost of fixing all roads with potholes in the country would cost £12 billion. As mentioned earlier, these methodologies can be seamlessly applied and reused across other categories of complaints with little modification.
+
+## Time Series Analysis and Forecasting
+The time series analysis and forecasting are done through SparkR, ggplot2, forecast, ggfortify etc. A time series can be thought of as a vector or matrix of numbers along with some information about what times those numbers were recorded. This information is stored in a ts object in R. ts(data, start, frequency, ...) The Code and detailed exploration can be referred from “Step03a_Model_Training_Testing” R Notebook from the artifacts section. Below are excerpts from this notebook.
+
+#### Monthly time series graph of the pothole incidents reported in 3 cities:
+![monthly_time_series_3cities](images/monthly_time_series_3cities.jpg)
+
+#### Chicago seasonal pothole incidents plots:
+![Chicago_seasonal_pothole](images/Chicago_seasonal_pothole.jpg)
+
+####  Interesting observations:
+Can the uptick of pothole repairs in the 3 cities during the first half of the year be attributed to winter months? Can the budget and contract of workers for pothole repair be allocated and spent following the trend?
+
+#### Time Series Forecasting:
+Automatic forecasting with exponential smoothing the namesake function for finding errors, trend, and seasonality (ETS) provides a completely automatic way of producing forecasts for a wide range of time series. Predicting Pothole incident occurrence in city of Chicago. When applying a forecasting method, it is important to always check that the residuals are well-behaved (i.e., no outliers or patterns) and resemble white noise. The prediction intervals are computed assuming that the residuals are also normally distributed.
+
+![residuals_ts](images/residuals_ts.jpg)
+
+#### Train and compare accuracies against different timeseries models:
+![ts_models](images/ts_models.jpg)
+
+We also worked on auto ARIMA and TBATS model.
+
+## Anamoly Detection
+The time series anomaly detection is done through SparkR, ggplot2, tidyverse and anomalize (anomalize, n.d.) package. By using anomalize package we have decomposed time series, detected anomalies, and created bands separating the “normal” data from the anomalous data. The Code and detailed exploration can be referred from “Step03b_Anamoly_Detection” R Notebook from the artifacts section. Below are excerpts from this notebook.
+
+anomalize has three main functions:
+* time_decompose(): Separates the time series into seasonal, trend, and remainder components
+* anomalize(): Applies anomaly detection methods to the remainder component.
+* time_recompose(): Calculates limits that separate the “normal” data from the anomalies!
+
+#### Plot anomalies:
+![Tidyverse_anamolies](images/Tidyverse_anamolies.jpg)
+
+#### Decomposition of Anomalized Chicago Weekly Pothole Repair Complaints:
+![anamoly_decomposition](images/anamoly_decomposition.jpg)
+
+#### Extracting the actual datapoints which are anomalies:
+![anomaly_extraction](images/anomaly_extraction.jpg)
+
+#### Observation from the data: 
+Why there was bump in potholes repair complaints in 2018 February? From the records 2018 Jan-Feb had a harsh winter and flooding. Also, snow, ice and moisture all contribute to potholes, but a cycle of freezing temperatures followed by higher temperatures helps the formation of potholes. and that explains the anomaly : 
+
+https://abc7chicago.com/chicago-weather-potholes-heavy-rain-flood-watch/3112763/ 
+https://digitaledition.chicagotribune.com/tribune/article_popover.aspx?guid=0815ff4c-6db6-4166-848c-eed12b08a702
+
+
+Going by the theme of our research i.e. whether the 3 cities are related let us find the anomalies in New York City and Boston also. We observe both the cities during the early 2018 had a rise in cases of pothole complaints. We also see from the data that the trends and anomalies in pothole complaints in Boston and New York City are very similar which can be attributed to their proximity and climate similarities.
+![boston_newyorkcity_anomaly_extraction](images/boston_newyorkcity_anomaly_extraction.jpg)
 
 
 ## Setup
