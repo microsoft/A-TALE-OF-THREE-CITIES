@@ -86,6 +86,73 @@ Outline the file contents of the repository. It helps users navigate the codebas
 ## Azure Pre-Requisites
 A subscription with at least $200 credit for a continuous 15-20 hours of usage.
 
+## Building Blocks
+
+The building blocks section of this README constitutes of the dataset, technologies, platform, third party libraries and a high-level process flow diagram.
+
+### Source Dataset
+
+For this paper the source are the 3 datasets as mentioned blow from Azure Open Datasets (docs.microsoft.com, n.d.) which are hosted in the Azure Blob storage (storage/blobs/, n.d.) which provides a scalable, cost-efficient object storage in the cloud.
+
+#### A. Chicago Safety Data  
+Source: https://azure.microsoft.com/en-us/services/open-datasets/catalog/chicago-safety-data/
+
+311 service requests from the city of Chicago, including historical sanitation code complaints, potholes reported, and streetlight issues. All open sanitation code complaints made to 311 and all requests completed since January 1, 2011. This dataset is orginally sourced from city of Chicago government (data.cityofchicago.org, n.d.).
+
+![Chicago_data_str](images/Chicago_data_str.jpg)
+
+#### B. Boston Safety Data  
+Source: https://azure.microsoft.com/en-us/services/open-datasets/catalog/boston-safety-data/
+
+This Dataset contains 311 calls reported to the city of Boston. This dataset contains historical records accumulated from 2011 to the present. This dataset is originially sourced from city of Boston government (data.boston.gov, n.d.). Reference Open Data Commons Public Domain Dedication and License (ODC PDDL) for the license of using this dataset.
+
+![Boston_data_str](images/Boston_data_str.jpg)
+
+#### C. NewYork City Safety Data  
+Source: https://azure.microsoft.com/en-us/services/open-datasets/catalog/new-york-city-safety-data/
+
+This dataset contains historical records of New York City 311 service requests accumulated from 2010 to the present. This dataset is origninally sourced from New York City government (data.cityofnewyork.us, n.d.).
+
+![NewYorkCity_data_str](images/NewYorkCity_data_str.jpg)
+
+#### Data Volume
+![Data_Volume](images/Data_Volume.jpg)
+
+### Technology and Platform
+
+#### Azure Databricks
+Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts (azure.microsoft.com, n.d.) .
+
+#### SparkR
+An R package that provides a light-weight frontend to use Apache Spark from R (spark.apache.org, n.d.) Provides a distributed DataFrame implementation that supports operations like selection, filtering, aggregation etc. (like R data frames, dplyr). Supports distributed machine learning using Spark MLlib. R programs can connect to a Spark cluster from RStudio, R shell, Rscript or other R IDEs.
+
+#### SparkSQL
+Spark SQL (spark.apache.org, n.d.) is a Spark module for structured data processing. Unlike the basic Spark RDD API, the interfaces provided by Spark SQL provide Spark with more information about the structure of both the data and the computation being performed. Internally, Spark SQL uses this extra information to perform extra optimizations. There are several ways to interact with Spark SQL including SQL and the Dataset API. When computing a result, the same execution engine is used, independent of which API/language you are using to express the computation.
+
+#### Azure Blob Storage
+Azure Blob Storage helps you create data lakes for your analytics needs and provides storage to build powerful cloud-native and mobile apps. Optimize costs with tiered storage for your long-term data, and flexibly scale up for high-performance computing and machine learning workloads (docs.microsoft.com, n.d.).
+
+#### Azure Key Vault
+Azure Key Vault Safeguard cryptographic keys and other secrets used by cloud apps and services. Secure key management is essential to protect data in the cloud.  Azure Key Vault is used to to encrypt keys and small secrets like passwords that use keys stored in hardware security modules (HSMs). https://docs.microsoft.com/en-us/azure/key-vault/general/overview
+
+
+#### Libraries and Plugins
+ggplot2, htmltools, htmlwidgets, leaflet with ESRI plugin, magrittr, 
+fpp2, forecast, ggfortify , R base packages, tidyverse , anomalize
+
+### Architecture of the solution
+![Architecture](images/Architecture.jpg)
+
+### Process flow and set up
+1.	Azure Databricks and Azure Blob Storage account are provisioned in Azure
+2.  The source SAS token is stored in Azure Key Vault
+3.	Data is read using SparkR notebooks from Azure Open Datasets in Azure Databricks
+4.	Data is wrangled and enriched for further analysis using SparkR and stored in Azure Blob Storage.
+5.	SparkR and 3rd party libraries are used for data analysis and visualization
+6.	SparkR and 3rd party libraries are used for Forecasting and Anomaly detection.
+
+
+
 ## Setup
 
 Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
@@ -97,6 +164,23 @@ Outline step-by-step instructions to execute the sample and see its output. Incl
 ## Key concepts
 
 Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+
+## References
+* (n.d.). Retrieved from parquet.apache.org: https://parquet.apache.org/
+* ai/responsible-ai. (n.d.). Retrieved from microsoft.com: https://www.microsoft.com/en-us/ai/responsible-ai
+* anomalize. (n.d.). Retrieved from github.com: https://github.com/business-science/anomalize
+* azure.microsoft.com. (n.d.). Retrieved from https://azure.microsoft.com/en-us/services/databricks/
+* Brown, J. (2012, May 31). budget-finance. Retrieved from govtech.com: https://www.govtech.com/budget-finance/Cities-Aim-to-Slash-311-Phone-Bills-Without-Affecting-311-Services.html
+* data.boston.gov. (n.d.). Retrieved from https://data.boston.gov/dataset/311-service-requests
+* data.cityofchicago.org. (n.d.). Retrieved from https://data.cityofchicago.org/Service-Requests/311-Service-Requests-Sanitation-Code-Complaints-Hi/me59-5fac
+* data.cityofnewyork.us. (n.d.). Retrieved from https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9
+* docs.microsoft.com. (n.d.). Retrieved from https://docs.microsoft.com/en-us/azure/open-datasets/overview-what-are-open-datasets
+* Pothole#Costs_to_the_public. (n.d.). Retrieved from en.wikipedia.org: https://en.wikipedia.org/wiki/Pothole#Costs_to_the_public
+* spark.apache.org. (n.d.). Retrieved from https://spark.apache.org/docs/latest/sparkr.html
+* spark.apache.org. (n.d.). Retrieved from https://spark.apache.org/docs/latest/sql-programming-guide.html
+* storage/blobs/. (n.d.). Retrieved from microsoft.com: https://azure.microsoft.com/en-us/services/storage/blobs/
+* wiki/3-1-1. (n.d.). Retrieved from en.wikipedia.org: https://en.wikipedia.org/wiki/3-1-1
+
 
 ## Contributing
 
