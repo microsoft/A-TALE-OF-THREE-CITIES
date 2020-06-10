@@ -1,3 +1,13 @@
+---
+page_type: Official Microsoft Sample
+languages:
+- R, SparkR, SparkSQL
+products:
+- Azure Databricks | Azure Blob Storage | Azure OpenDatasets | Azure KeyVault
+description: "Analyzing the safety (311) dataset published by Azure Open Datasets for Chicago, Boston and New York City using SparkR, SparkSQL, Azure Databricks, visualization using ggplot2 and leaflet. Focus is on descriptive analytics, clustering, time series forecasting and anomaly detection."
+urlFragment: "https://github.com/microsoft/A-TALE-OF-THREE-CITIES"
+---
+
 # A TALE OF THREE CITIES
 
 <!-- 
@@ -57,7 +67,9 @@ Outline the file contents of the repository. It helps users navigate the codebas
 
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
-| `src`             | Sample source code.                        |
+| `code`            | Sample source code.                        |
+| `dbc`             | Azure Databricks dbc files.                |
+| `images`          | Sample images used for documentation.      |
 | `.gitignore`      | Define what to ignore at commit time.      |
 | `CHANGELOG.md`    | List of changes to the sample.             |
 | `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
