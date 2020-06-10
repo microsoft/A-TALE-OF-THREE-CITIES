@@ -17,22 +17,10 @@ Taxonomies for products and languages: https://review.docs.microsoft.com/new-hop
   A recent 15-city study of 311 by the Pew Charitable Trusts found that the average cost per 311 call is $3.39. Detroit came in with the highest cost per call at a whopping $7.78. Despite the excessive costs, cities do not appear to be slowing their migration to 311. In fact, many are pushing forward with faith that the increased efficiency, streamlined processes and customer satisfaction they achieve will ultimately pay off (Brown, 2012) .
   
   We have identified the 3-1-1 call dataset from the cities Chicago, Boston and New York city provided by Azure Open Datasets. We believe that data is the new currency, now the question becomes what can we do with the 3-1-1 data and how can that analysis be beneficial?
-
-## Focus Area
-
-  In this paper I want to examine how the incidents reported in these three cities are related albeit imperfectly with time, clusters of incidents. Some of the questions and problems that is addressed are as follows:
-  * Transformation and enrichment of the datasets.
-  * Perform descriptive analytics on the data.
-  * Time series analysis and visualization
-  * Cluster visualization and analysis
-  * Time series forecasting and comparison using various methods
-  * Anomaly detection and reporting 
-  * Correlation among the incidents occurring the three cities w.r.t time
-  
-  Because of the varied nature of the incidents and analysis (descriptive and predictive) that can be performed on them, I demonstrated some of the concepts by means of isolating the pothole repair complaints which also ranks within the top 10 categories of complaints in the three cities (as we will demonstrate here as well). However, these methodologies can be seamlessly applied and reused across other categories of complaints with little modification.
   
 ## Value Proposition
-  This analysis can serve as a reference point and with refinement can be reused in the optimization of the Maintenance Fiscal budget of a city. The Development and the Maintenance services budget includes General Services, Public Works, Planning & Development and Solid Waste Management. This budget occupies a large portion in a city's overall fiscal budget and by the application and refinement of the descriptive and predictive analytics demonstrated as part of this work we can statistically optimize and predict the overall spending and budgeting. Here is an example of City of Houston’s 2019 Fiscal Year budget breakdown to give an idea of the general breakdown of the development and maintenance services components: https://www.houstontx.gov/budget/19budadopt/I_TABI.pdf
+
+  This analysis can serve as an exploratory reference, and with refinement can be reused in the optimization of the Maintenance Fiscal budget of a city. The Development and the Maintenance services budget includes General Services, Public Works, Planning & Development and Solid Waste Management. This budget occupies a large portion in a city's overall fiscal budget and by the application and refinement of the descriptive and predictive analytics demonstrated as part of this work we can statistically optimize and predict the overall spending and budgeting. Here is an example of City of Houston’s 2019 Fiscal Year budget breakdown to give an idea of the general breakdown of the development and maintenance services components: https://www.houstontx.gov/budget/19budadopt/I_TABI.pdf
   
 Secondly, this work can be used as a workshop, reference material and self-learning for the following concepts, technologies, and platforms:
 * Data Engineering using SparkR, R ecosystem
@@ -42,6 +30,19 @@ Secondly, this work can be used as a workshop, reference material and self-learn
 * Products used: Azure Databricks, Azure Open Datasets, Azure Blob Storage
 
 In the second phase I plan to develop another flavor solution using Azure Synapse Analytics and Azure Machine learning primarily using Python, REST APIs and PySpark.
+
+## Focus Area
+
+  For the purpose of this analysis, I want to examine how the incidents reported in these three cities are related albeit imperfectly with time, clusters of incidents. Some of the questions and problems that is addressed are as follows:
+  * Transformation and enrichment of the datasets.
+  * Perform descriptive analytics on the data.
+  * Time series analysis and visualization
+  * Cluster visualization and analysis
+  * Time series forecasting and comparison using various methods
+  * Anomaly detection and reporting 
+  * Correlation among the incidents occurring the three cities w.r.t time
+  
+  Because of the varied nature of the incidents and analysis (descriptive and predictive) that can be performed on them, I demonstrated some of the concepts by means of isolating the pothole repair complaints which also ranks within the top 10 categories of complaints in the three cities (as we will demonstrate here as well). However, these methodologies can be seamlessly applied and reused across other categories of complaints with little modification.
 
 ## Guiding Principles
 The work that will be subsequently done as part of this paper will have at the very least embody the following principles (ai/responsible-ai, n.d.):
@@ -217,18 +218,6 @@ https://digitaledition.chicagotribune.com/tribune/article_popover.aspx?guid=0815
 Going by the theme of our research i.e. whether the 3 cities are related let us find the anomalies in New York City and Boston also. We observe both the cities during the early 2018 had a rise in cases of pothole complaints. We also see from the data that the trends and anomalies in pothole complaints in Boston and New York City are very similar which can be attributed to their proximity and climate similarities.
 ![boston_newyorkcity_anomaly_extraction](images/boston_newyorkcity_anomaly_extraction.jpg)
 
-
-## Setup
-
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
-
-## Running the sample
-
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
-
-## Key concepts
-
-Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
 
 ## References
 * (n.d.). Retrieved from parquet.apache.org: https://parquet.apache.org/
