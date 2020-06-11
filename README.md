@@ -63,8 +63,6 @@ The work that will be subsequently done as part of this paper will have at the v
 
 ## Contents
 
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
-
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
 | `code`            | Sample source code.                        |
@@ -146,7 +144,7 @@ fpp2, forecast, ggfortify , R base packages, tidyverse , anomalize
 ### Architecture of the solution
 ![Architecture](images/Architecture.jpg)
 
-### Process flow and set up
+### Process flow
 1.	Azure Databricks and Azure Blob Storage account are provisioned in Azure
 2.  The source SAS token is stored in Azure Key Vault
 3.	Data is read using SparkR notebooks from Azure Open Datasets in Azure Databricks
@@ -230,6 +228,33 @@ https://digitaledition.chicagotribune.com/tribune/article_popover.aspx?guid=0815
 Going by the theme of our research i.e. whether the 3 cities are related let us find the anomalies in New York City and Boston also. We observe both the cities during the early 2018 had a rise in cases of pothole complaints. We also see from the data that the trends and anomalies in pothole complaints in Boston and New York City are very similar which can be attributed to their proximity and climate similarities.
 ![boston_newyorkcity_anomaly_extraction](images/boston_newyorkcity_anomaly_extraction.jpg)
 
+
+## Setup and Running the code
+1.	Create a free Azure account. Refer: [Azure Account](https://azure.microsoft.com/en-us/free) or use an existing subscription.
+2.	Create a storage account and a container. Refer: [Create Blob Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal)
+And [Create Blob Container](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
+Note: You need to change the name of the Sink Blob Account Name and Sink Blob Container Name in the SparkRNotebook [Step01a_Setup] (https://github.com/microsoft/A-TALE-OF-THREE-CITIES/blob/master/dbc/Step01a_Setup.dbc) in Step 9
+3.	Create a Shared Access Signature and copy the query string. Refer to the steps below.
+More information here: [Create SAS token](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview)
+![sas_setup](images/sas_setup.jpg)
+4.	From Azure portal create a key vault and then create a secret with the sas token retrieved from previous step.
+Refer [Create Azure KeyVault](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-portal)
+5.	Create a Azure databricks workspace and a spark cluster.
+Refer: [Create Azure Databricks workspace and cluster](https://docs.microsoft.com/en-us/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+![Cluster_configuration](images/Cluster_configuration.jpg)
+6.	Create an Azure Key Vault backed secret scope (note that you should have contributor access on the KeyVault instance).
+Refer: [Azure Key Vault backed secret scope](https://docs.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
+![secret_scope](images/secret_scope.jpg)
+7.	Load the requisite libraries in the azure databricks spark cluster. 
+Refer: [Install Libraries](https://docs.microsoft.com/en-us/azure/databricks/libraries?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-databricks%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json#cluster-installed-library)
+Please find the list of libraries in the image below:
+![Libraries_List](images/Libraries_List.jpg)
+8.	Import the dbc archive using the link https://github.com/microsoft/A-TALE-OF-THREE-CITIES/blob/master/dbc/all_dbc_archive/311_Analytics_OpenSource.dbc
+Refer: [Import notebook](https://docs.microsoft.com/en-us/azure/databricks/notebooks/notebooks-manage#--import-a-notebook)
+![all_dbc_import](images/all_dbc_import.jpg)
+![bulk_dbc](images/bulk_dbc.jpg)
+9.	Update and validate the Sink configuration section (Line 8 to 12 in Cmd 3 section) and copy paste the value of the source sas token from line 6 in Step01a_Setup in your Azure databricks workspace.
+10.	Start running the sample from Step02a_Data_Wrangling in your Azure databricks workspace.
 
 ## References
 * (n.d.). Retrieved from parquet.apache.org: https://parquet.apache.org/
