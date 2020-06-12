@@ -135,7 +135,7 @@ Refer [Setup and Running the code](https://github.com/microsoft/A-TALE-OF-THREE-
 
 ## Credits
 
-Rajdeep Biswas (Houston) : Creator and primary author of the workshop, content designer, GitHub repo and wiki contributor.
+[Rajdeep Biswas](https://www.linkedin.com/in/rajdeepbiswas/) : Creator and primary author of the workshop, content designer, GitHub repo and wiki contributor.
 
 Note from Rajdeep: This work came out of my research project in Bellevue University and I am grateful to Dr. Scott Counts (Principal Researcher at Microsoft) for his work on city safety analytics and providing support during my research work.
 
