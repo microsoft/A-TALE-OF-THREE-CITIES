@@ -75,9 +75,9 @@ The work that will be subsequently done as part of this paper will have at the v
 | `LICENSE`         | The license for the sample.                |
 
 ## Target Audience
-* Architects
 * Data Scientists
 * Data Engineers
+* Architects
 * R and Spark Developers
 
 ## Pre-Requisite Knowledge
@@ -92,7 +92,7 @@ The building blocks section of constitutes of the source dataset, technologies a
 Refer [Building Blocks](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Building-Blocks) from the wiki for detailed description.
 
 ## Architecture of the solution 
-Refer [Architecture and Process Flow](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Setup-and-Running-the-code) from the wiki for the architecture of the solution the process flow.
+Refer [Architecture and Process Flow](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Architecture-of-the-solution-and-Process-flow) from the wiki for the architecture of the solution the process flow.
 
 ## Data Wrangling, Exploration and Visualization
 Data is cleansed and enriched using SparkR and SparkSQL. The curated dataset is written in Azure Blob storage in parquet format (parquet.apache.org, n.d.) partitioned by City Name. Data exploration and visualization is done using SparkR, SparkSQL, ggplot2, htmltools, htmlwidgets, leaflet with ESRI plugin, magrittr etc.
@@ -109,7 +109,7 @@ Refer [Time Series Analysis and Forecasting](https://github.com/microsoft/A-TALE
 The time series anomaly detection is done through SparkR, ggplot2, tidyverse and anomalize (anomalize, n.d.) package. By using anomalize package we have decomposed time series, detected anomalies, and created bands separating the “normal” data from the anomalous data. Refer [Anamoly Detection](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Overview-of-Time-Series-Analysis-and-Forecasting-and-Anomaly-Detection#anomaly-detection) from the wiki for details.
 
 ## Setup and Running the code
-Refer [Setup and Running the code](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Setup-and-Running-the-code) from the wiki for detailed instructions.
+Refer [Setup and Running the code](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Setup-and-Running-the-code) from the wiki for step by step instructions on how to setup and tun the code.
 
 ## References
 * (n.d.). Retrieved from parquet.apache.org: https://parquet.apache.org/
