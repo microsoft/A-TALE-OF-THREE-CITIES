@@ -98,6 +98,12 @@ Refer [Architecture and Process Flow](https://github.com/microsoft/A-TALE-OF-THR
 Data is cleansed and enriched using SparkR and SparkSQL. The curated dataset is written in Azure Blob storage in parquet format (parquet.apache.org, n.d.) partitioned by City Name. Data exploration and visualization is done using SparkR, SparkSQL, ggplot2, htmltools, htmlwidgets, leaflet with ESRI plugin, magrittr etc.
 Refer [Data Wrangling, Exploration and Visualization](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Data-Wrangling,-Exploration-and-Visualization) from the project wiki for details.
 
+One of the visualization outcome from the notebook is a fully explorable geoplot done using leaflet with ESRI plugin with a subset of the data.
+![geoplot](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/blob/master/images/geoplot.jpg)
+
+The interactive map with a subset of the data can be viewed [here](https://blob9cognitive.z21.web.core.windows.net/rwidgets_safety_events_mapexploration.html)
+
+
 ## Problem Isolation
 Because of the varied nature of the incidents we tried to demonstrate the concepts using the pothole complaints. Pothole facts from wiki (Pothole#Costs_to_the_public, n.d.) The American Automobile Association estimated in the five years prior to 2016 that 16 million drivers in the United States have suffered damage from potholes to their vehicle including tire punctures, bent wheels, and damaged suspensions with a cost of $3 billion a year. In India, 3,000 people per year are killed in accidents involving potholes. Britain has estimated that the cost of fixing all roads with potholes in the country would cost £12 billion. As mentioned earlier, these methodologies can be seamlessly applied and reused across other categories of complaints with little modification.
 
