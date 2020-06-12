@@ -88,7 +88,7 @@ The work that will be subsequently done as part of this paper will have at the v
 A subscription with at least $200 credit for a continuous 15-20 hours of usage.
 
 ## Building Blocks
-The building blocks section of constitutes of the source dataset, technologies and platform used.
+The building blocks section constitutes of the [source dataset](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Building-Blocks#source-dataset), [technologies and platform](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Building-Blocks#technology-and-platform) used.
 Refer [Building Blocks](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Building-Blocks) from the project wiki for detailed description.
 
 ## Architecture of the solution 
