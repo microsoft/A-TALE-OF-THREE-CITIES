@@ -88,146 +88,25 @@ The work that will be subsequently done as part of this paper will have at the v
 A subscription with at least $200 credit for a continuous 15-20 hours of usage.
 
 ## Building Blocks
+The building blocks section of constitutes of the source dataset, technologies and platform used.
+Refer [Building Blocks](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Building-Blocks) from the wiki for detailed description.
 
-The building blocks section of this README constitutes of the dataset, technologies, platform, third party libraries and a high-level process flow diagram.
+## Architecture of the solution 
+Refer [Architecture and Process Flow](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Setup-and-Running-the-code) from the wiki for the architecture of the solution the process flow.
 
-### Source Dataset
-
-For this paper the source are the 3 datasets as mentioned blow from Azure Open Datasets (docs.microsoft.com, n.d.) which are hosted in the Azure Blob storage (storage/blobs/, n.d.) which provides a scalable, cost-efficient object storage in the cloud.
-
-#### A. Chicago Safety Data  
-Source: https://azure.microsoft.com/en-us/services/open-datasets/catalog/chicago-safety-data/
-
-311 service requests from the city of Chicago, including historical sanitation code complaints, potholes reported, and streetlight issues. All open sanitation code complaints made to 311 and all requests completed since January 1, 2011. This dataset is orginally sourced from city of Chicago government (data.cityofchicago.org, n.d.).
-
-![Chicago_data_str](images/Chicago_data_str.jpg)
-
-#### B. Boston Safety Data  
-Source: https://azure.microsoft.com/en-us/services/open-datasets/catalog/boston-safety-data/
-
-This Dataset contains 311 calls reported to the city of Boston. This dataset contains historical records accumulated from 2011 to the present. This dataset is originially sourced from city of Boston government (data.boston.gov, n.d.). Reference Open Data Commons Public Domain Dedication and License (ODC PDDL) for the license of using this dataset.
-
-![Boston_data_str](images/Boston_data_str.jpg)
-
-#### C. NewYork City Safety Data  
-Source: https://azure.microsoft.com/en-us/services/open-datasets/catalog/new-york-city-safety-data/
-
-This dataset contains historical records of New York City 311 service requests accumulated from 2010 to the present. This dataset is origninally sourced from New York City government (data.cityofnewyork.us, n.d.).
-
-![NewYorkCity_data_str](images/NewYorkCity_data_str.jpg)
-
-#### Data Volume
-![Data_Volume](images/Data_Volume.jpg)
-
-### Technology and Platform
-
-#### Azure Databricks
-Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Azure Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts (azure.microsoft.com, n.d.) .
-
-#### SparkR
-An R package that provides a light-weight frontend to use Apache Spark from R (spark.apache.org, n.d.) Provides a distributed DataFrame implementation that supports operations like selection, filtering, aggregation etc. (like R data frames, dplyr). Supports distributed machine learning using Spark MLlib. R programs can connect to a Spark cluster from RStudio, R shell, Rscript or other R IDEs.
-
-#### SparkSQL
-Spark SQL (spark.apache.org, n.d.) is a Spark module for structured data processing. Unlike the basic Spark RDD API, the interfaces provided by Spark SQL provide Spark with more information about the structure of both the data and the computation being performed. Internally, Spark SQL uses this extra information to perform extra optimizations. There are several ways to interact with Spark SQL including SQL and the Dataset API. When computing a result, the same execution engine is used, independent of which API/language you are using to express the computation.
-
-#### Azure Blob Storage
-Azure Blob Storage helps you create data lakes for your analytics needs and provides storage to build powerful cloud-native and mobile apps. Optimize costs with tiered storage for your long-term data, and flexibly scale up for high-performance computing and machine learning workloads (docs.microsoft.com, n.d.).
-
-#### Azure Key Vault
-Azure Key Vault Safeguard cryptographic keys and other secrets used by cloud apps and services. Secure key management is essential to protect data in the cloud.  Azure Key Vault is used to to encrypt keys and small secrets like passwords that use keys stored in hardware security modules (HSMs). https://docs.microsoft.com/en-us/azure/key-vault/general/overview
-
-
-#### Libraries and Plugins
-ggplot2, htmltools, htmlwidgets, leaflet with ESRI plugin, magrittr, 
-fpp2, forecast, ggfortify , R base packages, tidyverse , anomalize
-
-### Architecture of the solution
-![Architecture](images/Architecture.jpg)
-
-### Process flow
-1.	Azure Databricks and Azure Blob Storage account are provisioned in Azure
-2.  The source SAS token is stored in Azure Key Vault
-3.	Data is read using SparkR notebooks from Azure Open Datasets in Azure Databricks
-4.	Data is wrangled and enriched for further analysis using SparkR and stored in Azure Blob Storage.
-5.	SparkR and 3rd party libraries are used for data analysis and visualization
-6.	SparkR and 3rd party libraries are used for Forecasting and Anomaly detection.
-
-## Data Wrangling and Enrichment
-Data is cleansed and enriched using SparkR and SparkSQL. The curated dataset is written in Azure Blob storage in parquet format (parquet.apache.org, n.d.) partitioned by City Name. The Code can be referred from “Step02a_Data_Wrangling” R Notebook from the artifacts section. 
-
-Final Data Structure:
-![enriched3cities](images/enriched3cities.jpg)
-
-Sink Storage:
-![storage](images/storage.jpg)
-
-## Data Exploration and Visualization
-
-Data exploration and visualization is done using SparkR, SparkSQL, ggplot2, htmltools, htmlwidgets, leaflet with ESRI plugin, magrittr etc. The Code and detailed exploration can be referred from “Step02b_Data_Exploration_Visualization” R Notebook from the artifacts section. Below are some highlights from this notebook.
-
-#### Top 30 and bottom 30 safety incidents reported in Chicago:
-![top30_bottom30_chicago](images/top30_bottom30_chicago.jpg)
-
-#### Changes Over Time - Volume of All Safety Calls and  specific Safety Calls (Graffiti in this example):
-![all_safety_graffiti](images/all_safety_graffiti.jpg)
-
-#### Fully explorable geoplot done using leaflet with ESRI plugin (with a subset of the data) attached in the artifacts :
-![geoplot](images/geoplot.jpg)
-
-http://htmlpreview.github.io/?https://github.com/microsoft/A-TALE-OF-THREE-CITIES/blob/master/images/rwidgets_safety_events_mapexploration.html
+## Data Wrangling, Exploration and Visualization
+Data is cleansed and enriched using SparkR and SparkSQL. The curated dataset is written in Azure Blob storage in parquet format (parquet.apache.org, n.d.) partitioned by City Name. Data exploration and visualization is done using SparkR, SparkSQL, ggplot2, htmltools, htmlwidgets, leaflet with ESRI plugin, magrittr etc.
+Refer [Data Wrangling, Exploration and Visualization](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Data-Wrangling,-Exploration-and-Visualization) from the wiki for details.
 
 ## Problem Isolation
 Because of the varied nature of the incidents we tried to demonstrate the concepts using the pothole complaints. Pothole facts from wiki (Pothole#Costs_to_the_public, n.d.) The American Automobile Association estimated in the five years prior to 2016 that 16 million drivers in the United States have suffered damage from potholes to their vehicle including tire punctures, bent wheels, and damaged suspensions with a cost of $3 billion a year. In India, 3,000 people per year are killed in accidents involving potholes. Britain has estimated that the cost of fixing all roads with potholes in the country would cost £12 billion. As mentioned earlier, these methodologies can be seamlessly applied and reused across other categories of complaints with little modification.
 
 ## Time Series Analysis and Forecasting
-The time series analysis and forecasting are done through SparkR, ggplot2, forecast, ggfortify etc. A time series can be thought of as a vector or matrix of numbers along with some information about what times those numbers were recorded. This information is stored in a ts object in R. ts(data, start, frequency, ...) The Code and detailed exploration can be referred from “Step03a_Model_Training_Testing” R Notebook from the artifacts section. Below are excerpts from this notebook.
-
-#### Monthly time series graph of the pothole incidents reported in 3 cities:
-![monthly_time_series_3cities](images/monthly_time_series_3cities.jpg)
-
-#### Chicago seasonal pothole incidents plots:
-![Chicago_seasonal_pothole](images/Chicago_seasonal_pothole.jpg)
-
-####  Interesting observations:
-Can the uptick of pothole repairs in the 3 cities during the first half of the year be attributed to winter months? Can the budget and contract of workers for pothole repair be allocated and spent following the trend?
-
-#### Time Series Forecasting:
-Automatic forecasting with exponential smoothing the namesake function for finding errors, trend, and seasonality (ETS) provides a completely automatic way of producing forecasts for a wide range of time series. Predicting Pothole incident occurrence in city of Chicago. When applying a forecasting method, it is important to always check that the residuals are well-behaved (i.e., no outliers or patterns) and resemble white noise. The prediction intervals are computed assuming that the residuals are also normally distributed.
-
-![residuals_ts](images/residuals_ts.jpg)
-
-#### Train and compare accuracies against different timeseries models:
-![ts_models](images/ts_models.jpg)
-
-We also worked on auto ARIMA and TBATS model.
+The time series analysis and forecasting are done through SparkR, ggplot2, forecast, ggfortify etc. A time series can be thought of as a vector or matrix of numbers along with some information about what times those numbers were recorded. This information is stored in a ts object in R. ts(data, start, frequency, ...) 
+Refer [Time Series Analysis and Forecasting](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Overview-of-Time-Series-Analysis-and-Forecasting-and-Anomaly-Detection#time-series-analysis-and-forecasting) from the wiki for details.
 
 ## Anamoly Detection
-The time series anomaly detection is done through SparkR, ggplot2, tidyverse and anomalize (anomalize, n.d.) package. By using anomalize package we have decomposed time series, detected anomalies, and created bands separating the “normal” data from the anomalous data. The Code and detailed exploration can be referred from “Step03b_Anamoly_Detection” R Notebook from the artifacts section. Below are excerpts from this notebook.
-
-anomalize has three main functions:
-* time_decompose(): Separates the time series into seasonal, trend, and remainder components
-* anomalize(): Applies anomaly detection methods to the remainder component.
-* time_recompose(): Calculates limits that separate the “normal” data from the anomalies!
-
-#### Plot anomalies:
-![Tidyverse_anamolies](images/Tidyverse_anamolies.jpg)
-
-#### Decomposition of Anomalized Chicago Weekly Pothole Repair Complaints:
-![anamoly_decomposition](images/anamoly_decomposition.jpg)
-
-#### Extracting the actual datapoints which are anomalies:
-![anomaly_extraction](images/anomaly_extraction.jpg)
-
-#### Observation from the data: 
-Why there was bump in potholes repair complaints in 2018 February? From the records 2018 Jan-Feb had a harsh winter and flooding. Also, snow, ice and moisture all contribute to potholes, but a cycle of freezing temperatures followed by higher temperatures helps the formation of potholes. and that explains the anomaly : 
-
-https://abc7chicago.com/chicago-weather-potholes-heavy-rain-flood-watch/3112763/ 
-https://digitaledition.chicagotribune.com/tribune/article_popover.aspx?guid=0815ff4c-6db6-4166-848c-eed12b08a702
-
-
-Going by the theme of our research i.e. whether the 3 cities are related let us find the anomalies in New York City and Boston also. We observe both the cities during the early 2018 had a rise in cases of pothole complaints. We also see from the data that the trends and anomalies in pothole complaints in Boston and New York City are very similar which can be attributed to their proximity and climate similarities.
-![boston_newyorkcity_anomaly_extraction](images/boston_newyorkcity_anomaly_extraction.jpg)
-
+The time series anomaly detection is done through SparkR, ggplot2, tidyverse and anomalize (anomalize, n.d.) package. By using anomalize package we have decomposed time series, detected anomalies, and created bands separating the “normal” data from the anomalous data. Refer [Anamoly Detection](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Overview-of-Time-Series-Analysis-and-Forecasting-and-Anomaly-Detection#anomaly-detection) from the wiki for details.
 
 ## Setup and Running the code
 Refer [Setup and Running the code](https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki/Setup-and-Running-the-code) from the wiki for detailed instructions.
