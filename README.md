@@ -6,7 +6,6 @@ products:
 - Azure Databricks | Azure Blob Storage | Azure OpenDatasets | Azure KeyVault
 description: "Analyzing the safety (311) dataset published by Azure Open Datasets for Chicago, Boston and New York City using SparkR, SparkSQL, Azure Databricks, visualization using ggplot2 and leaflet. Focus is on descriptive analytics, clustering, time series forecasting and anomaly detection."
 urlFragment: "https://github.com/microsoft/A-TALE-OF-THREE-CITIES"
-Project wiki: "https://github.com/microsoft/A-TALE-OF-THREE-CITIES/wiki"
 ---
 
 # A TALE OF THREE CITIES
