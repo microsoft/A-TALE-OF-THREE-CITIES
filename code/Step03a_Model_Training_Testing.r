@@ -569,5 +569,5 @@ fc_tbats <- forecast(fit_tbats, h = 12 * 2)
 autoplot(fc_tbats)
 
 # COMMAND ----------
-
+#Integrate Azure Machine Learning
 
