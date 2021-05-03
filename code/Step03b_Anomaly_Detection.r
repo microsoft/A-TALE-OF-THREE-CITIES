@@ -247,3 +247,5 @@ weekly_count_newyorkcity_pothole_2014_2019_tib %>%
   anomalize(remainder) %>%
   time_recompose() %>%
   filter(anomaly == 'Yes') 
+
+#Integrate Azure Machine Learning
